@@ -32,7 +32,7 @@ void RadonEyeRD200::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_
       }
       this->read_handle_ = chr->handle;
 
-      // Write a 0x50 to the write characteristic.
+      // Write a 0x40 to the write characteristic.
       auto *write_chr = this->parent()->get_characteristic(service_uuid_, sensors_write_characteristic_uuid_);
       if (write_chr == nullptr) {
         ESP_LOGW(TAG, "No sensor write characteristic found at service %s char %s", service_uuid_.to_string().c_str(),
@@ -144,8 +144,8 @@ void RadonEyeRD200::update() {
 }
 
 void RadonEyeRD200::write_query_message_() {
-  ESP_LOGV(TAG, "writing 0x50 to write service");
-  int request = 0x50;
+  ESP_LOGV(TAG, "writing 0x40 to write service");
+  int request = 0x40;
   auto status = esp_ble_gattc_write_char_descr(this->parent()->get_gattc_if(), this->parent()->get_conn_id(),
                                                this->write_handle_, sizeof(request), (uint8_t *) &request,
                                                ESP_GATT_WRITE_TYPE_NO_RSP, ESP_GATT_AUTH_REQ_NONE);
