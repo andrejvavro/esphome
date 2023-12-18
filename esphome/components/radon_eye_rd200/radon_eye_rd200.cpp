@@ -80,7 +80,7 @@ void RadonEyeRD200::read_sensors_(uint8_t *value, uint16_t value_len) {
            value[10], value[11], value[12], value[13], value[14], value[15], value[16], value[17], value[18],
            value[19]);
 
-  if (value[0] != 0x50) {
+  if (value[0] != 0x40) {
     // This isn't a sensor reading.
     return;
   }
