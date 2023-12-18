@@ -174,7 +174,9 @@ RadonEyeRD200::RadonEyeRD200()
     : PollingComponent(10000),
       service_uuid_(esp32_ble_tracker::ESPBTUUID::from_raw(SERVICE_UUID)),
       sensors_write_characteristic_uuid_(esp32_ble_tracker::ESPBTUUID::from_raw(WRITE_CHARACTERISTIC_UUID)),
-      sensors_read_characteristic_uuid_(esp32_ble_tracker::ESPBTUUID::from_raw(READ_CHARACTERISTIC_UUID)) {}
+      sensors_read_characteristic_uuid_(esp32_ble_tracker::ESPBTUUID::from_raw(READ_CHARACTERISTIC_UUID)) {
+      ESP_LOGI(TAG, "@AV - RadonEyeRD200()");
+      }
 
 }  // namespace radon_eye_rd200
 }  // namespace esphome
