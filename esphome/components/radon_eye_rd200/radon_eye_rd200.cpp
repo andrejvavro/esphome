@@ -165,6 +165,7 @@ void RadonEyeRD200::request_read_values_() {
 }
 
 void RadonEyeRD200::dump_config() {
+  ESP_LOGI(TAG, "@AV - dump_config()");
   LOG_SENSOR("  ", "Radon", this->radon_sensor_);
   LOG_SENSOR("  ", "Radon Long Term", this->radon_long_term_sensor_);
 }
