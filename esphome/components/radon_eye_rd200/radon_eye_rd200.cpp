@@ -23,6 +23,8 @@ void RadonEyeRD200::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_
     }
 
     case ESP_GATTC_SEARCH_CMPL_EVT: {
+      ESP_LOGI(TAG, "@AV - ESP_GATTC_SEARCH_CMPL_EVT");
+      
       this->read_handle_ = 0;
       auto *chr = this->parent()->get_characteristic(service_uuid_, sensors_read_characteristic_uuid_);
       if (chr == nullptr) {
